@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "DaggerMultimodule"
 include(":app")
 include(":data")
+include(":core")
+include(":task")
+include(":network")

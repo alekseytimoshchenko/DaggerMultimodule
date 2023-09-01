@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.krokosha.data.Database
 import com.krokosha.task.R
+import com.krokosha.task.ui.di.DaggerTaskComponent
 import javax.inject.Inject
 
 class TasksFragment : Fragment() {
@@ -21,9 +22,11 @@ class TasksFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        val taskComponentDependencies = (context.applicationContext as TaskComponentDependenciesProvider).getTaskComponentDependencies()
 
-        (context.applicationContext as TaskComponentProvider)
-            .getTaskComponent()
+        DaggerTaskComponent.builder()
+            .taskComponentDependencies(taskComponentDependencies)
+            .build()
             .inject(tasksFragment = this)
     }
 

@@ -44,7 +44,6 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":core"))
     implementation(project(":task"))
-    implementation(project(":network"))
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")

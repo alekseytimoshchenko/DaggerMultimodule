@@ -1,19 +1,11 @@
 package com.krokosha.task.ui
 
-import com.krokosha.network.di.NetworkModule
-import com.krokosha.task.ui.di.TaskModule
-import dagger.Subcomponent
+import com.krokosha.data.Database
 
-@Subcomponent(
-    modules = [
-        NetworkModule::class,
-        TaskModule::class
-    ]
-)
-interface TaskComponent {
-    fun inject(tasksFragment: TasksFragment)
+interface TaskComponentDependencies {
+    fun getDatabase(): Database
 }
 
-interface TaskComponentProvider {
-    fun getTaskComponent(): TaskComponent
+interface TaskComponentDependenciesProvider {
+    fun getTaskComponentDependencies(): TaskComponentDependencies
 }
